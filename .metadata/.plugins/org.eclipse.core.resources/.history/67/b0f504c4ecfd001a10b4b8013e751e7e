@@ -1,0 +1,111 @@
+package entity;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Produto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private Integer idProduto;
+	private String nomeProduto;
+	private Double precoProduto;
+	private Double subTotal =0.;
+
+	public Produto() {
+		
+	}
+			
+	@Override
+	public String toString() {
+		return "Produto [idProduto=" + idProduto + ", nomeProduto=" + nomeProduto + ", precoProduto=" + precoProduto
+				+ ", subTotal=" + subTotal + "]";
+	}
+
+
+	public Produto(Integer idProduto, String nomeProduto, Double precoProduto) {
+		super();
+		this.idProduto = idProduto;
+		this.nomeProduto = nomeProduto;
+		this.precoProduto = precoProduto;
+		
+	}
+
+
+
+	public Integer getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(Integer idProduto) {
+		this.idProduto = idProduto;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
+	public Double getPrecoProduto() {
+		return precoProduto;
+	}
+
+	public void setPrecoProduto(Double precoProduto) {
+		this.precoProduto = precoProduto;
+	}
+
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+	
+	public static void main(String[] args) {
+		try {
+			
+			 FileOutputStream fop = new FileOutputStream("c:/temp/produto.dat");
+			 ObjectOutputStream out = new ObjectOutputStream(fop);
+			 
+			  Produto p =new Produto(10,"tampico",7.);
+			  
+			    out.writeObject(p);
+ 
+			    out.flush();
+			    out.close();
+			    
+			    FileInputStream fip = new FileInputStream("c:/temp/produto.dat");
+				ObjectInputStream in = new ObjectInputStream(fip);
+				 
+			     	  
+				   Produto resp = (Produto) in.readObject();
+				   System.out.println("Nao e que foi " + resp);
+				    
+				   in.close();
+				  fip.close();  
+			
+				   System.out.println("Ass: Rosana ....");
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			System.out.println("vai vendo deu erro");
+		}
+		
+		
+		
+	}
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+}

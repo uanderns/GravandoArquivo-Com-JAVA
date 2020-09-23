@@ -1,0 +1,68 @@
+package entity;
+
+import java.io.Serializable;
+
+public class Produto implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private Integer idProduto;
+	private String nomeProduto;
+	private Double precoProduto;
+	private Double subTotal =0.;
+
+	public Produto() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	public Produto(Integer idProduto, String nomeProduto, Double precoProduto, Double subTotal) {
+		super();
+		this.idProduto = idProduto;
+		this.nomeProduto = nomeProduto;
+		this.precoProduto = precoProduto;
+		this.subTotal = subTotal;
+	}
+
+
+
+	public Integer getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(Integer idProduto) {
+		this.idProduto = idProduto;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
+	public Double getPrecoProduto() {
+		return precoProduto;
+	}
+
+	public void setPrecoProduto(Double precoProduto) {
+		this.precoProduto = precoProduto;
+	}
+
+	public Double getSubTotal() {
+		return subTotal;
+	}
+
+	public void setSubTotal(Double subTotal) {
+		this.subTotal = subTotal;
+	}
+
+	
+	
+	
+	
+	
+
+}
